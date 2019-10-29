@@ -25,33 +25,33 @@ function handleFilter() {
 
   // Select the input element and get the raw HTML node
   var searchDate = d3.select("#datetime").property("value");
-  var searchCity = d3.select("#city").property("value");
-  var searchState = d3.select("#state").property("value");
-  var searhCountry = d3.select("#country").property("value");
-  var searchShape = d3.select("#shape").property("value");
+  var searchCity = d3.select("#city").property("value").toLowerCase();
+  var searchState = d3.select("#state").property("value").toLowerCase();
+  var searhCountry = d3.select("#country").property("value").toLowerCase();
+  var searchShape = d3.select("#shape").property("value").toLowerCase();
   
   var filteredData = data;
   if (searchDate != ""){
     filteredData = filteredData.filter(filterRecord => filterRecord.datetime === searchDate);
-    console.log(searchDate)
-    
+    //console.log(searchDate)
+ 
 }
-  if (searchCity != ""){
+
+if (searchCity != ""){
     filteredData = filteredData.filter(filterRecord => filterRecord.city === searchCity);
 }
+
   if (searchState != ""){
     filteredData = filteredData.filter(filterRecord => filterRecord.state === searchState);
 }
+
   if (searhCountry != ""){
     filteredData = filteredData.filter(filterRecord => filterRecord.country === searhCountry);
 }
+
   if (searchShape != ""){
     filteredData = filteredData.filter(filterRecord => filterRecord.shape === searchShape);
 }
-
-
-
-
   
   console.log(filteredData);
   tbody.html('');
